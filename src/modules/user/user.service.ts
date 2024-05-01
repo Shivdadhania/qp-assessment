@@ -35,7 +35,7 @@ export class UserService {
         throw new UnauthorizedException(messages.passwordWrong);
       }
 
-      const token = generateJwt(user.email, user.role, user.id);
+      const token = await generateJwt(user.email, user.role, user.id);
       return { token };
     } catch (error) {
       throw error;

@@ -38,4 +38,6 @@ export class GroceryService {
       throw error;
     }
   }
+
+  async add() {}
 }
