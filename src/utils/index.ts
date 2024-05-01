@@ -7,4 +7,4 @@ export * from './log.utils';
 export * from './messages';
 export * from './middleware';
 export * from './database';
-
+export * from './dispatchers';

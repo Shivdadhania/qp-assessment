@@ -59,12 +59,12 @@ export async function generateSaltAndHash(
 }
 
 export const generateJwt = async (
-  name: string,
+  email: string,
   role: Roles,
   user_id: string,
 ) => {
   const data: UserPayload = {
-    name,
+    email,
     role,
     id: user_id,
   };
