@@ -4,6 +4,20 @@ import * as jwt from 'jsonwebtoken';
 import { messages, config, UserPayload, Roles } from './index';
 
 /**
+ * Calculate the offset for pagination based on the current page and record per page.
+ *
+ * @param pageNo - The current page number.
+ * @param recordPerPage - The number of records to display per page.
+ * @returns An object containing the take, skip, and pageNumber for pagination.
+ */
+export function getPaginateOffset(pageNo: number, recordPerPage: number) {
+  const pageNumber = pageNo ? Number(pageNo) : 1;
+  const take = recordPerPage ? Number(recordPerPage) : 10;
+  const skip = (pageNumber - 1) * take;
+  return { take, skip, pageNumber };
+}
+
+/**
  * compares plain password and password hash, and validates if both are same or not
  * it not same, throws an error, else resolves  true
  * @param plainPassword plain password received in request body

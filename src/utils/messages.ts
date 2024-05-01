@@ -12,4 +12,5 @@ export const messages = {
   userNotFound: `User not found.`,
 
   userLoginSuccessfully: `User login success fully.`,
+  productList: `Product list get successfully.`,
 };

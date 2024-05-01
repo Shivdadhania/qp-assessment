@@ -1,4 +1,3 @@
-import { OrderDetailEntity } from './order-detail.entity';
 import {
   Column,
   CreateDateColumn,
@@ -7,6 +6,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { OrderDetailEntity } from './order-detail.entity';
 
 @Entity('grocery_items')
 export class GroceryItemsEntity {
@@ -17,6 +17,7 @@ export class GroceryItemsEntity {
     type: 'varchar',
     length: 300,
     nullable: false,
+    unique: true,
   })
   name!: string;
 

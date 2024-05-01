@@ -1,5 +1,3 @@
-import { OrderEntity } from './order.entity';
-import { Roles } from './../utils';
 import {
   Column,
   CreateDateColumn,
@@ -8,6 +6,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { OrderEntity } from './order.entity';
+import { Roles } from './../utils';
 
 @Entity('user')
 export class UserEntity {

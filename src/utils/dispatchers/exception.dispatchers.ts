@@ -18,7 +18,7 @@ import {
 import { Response } from 'express';
 import { ExtendedRequestInterface } from '../middleware';
 import { MulterError } from 'multer';
-import { logger } from 'utils/log.utils';
+import { logger } from '../log.utils';
 
 @Catch()
 export class GlobalExceptionFilter implements ExceptionFilter {

@@ -1,5 +1,3 @@
-import { GroceryItemsEntity } from './grocery-items.entity';
-import { OrderEntity } from './order.entity';
 import {
   Column,
   Entity,
@@ -8,6 +6,8 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { GroceryItemsEntity } from './grocery-items.entity';
+import { OrderEntity } from './order.entity';
 
 @Entity('order_detail')
 export class OrderDetailEntity {
