@@ -23,14 +23,45 @@
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
+Grocery management apis.
+ - apis to add, update, delete Grocery.
+ - two rols available user, admin.
+ - admin can add, update, delete Grocery.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Prerequisites
+ - Use node version 20.6.0 or above.
+ - Use nest version 9.0.0 or above.
+ - We have used postgresql as database, install [here](https://www.postgresql.org/download/).
+
 
 ## Installation
 
 ```bash
 $ npm install
 ```
+
+## Add Environment Variables
+#### Step 1: Create .env file using below command & add required values
+```bash
+$ cp .env.example .env
+```
+
+## Running Migration
+```bash
+# to run migration
+$ npm run migration:up
+
+# to generate new migration 
+$ FOR=nameOfMigration npm run migration:generate
+```
+- when you run migration Entity will created & dummy data will  be added in user table.
+- user credentials will be, 
+- ADMIN
+  - email - shiv@google.com
+  - password - 123456789   
+- USER
+  - email - shiv123@google.com
+  - password - 123456789 
 
 ## Running the app
 
@@ -41,33 +72,5 @@ $ npm run start
 # watch mode
 $ npm run start:dev
 
-# production mode
-$ npm run start:prod
 ```
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
