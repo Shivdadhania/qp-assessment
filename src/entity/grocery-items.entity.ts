@@ -2,11 +2,9 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { OrderDetailEntity } from './order-detail.entity';
 
 @Entity('grocery_items')
 export class GroceryItemsEntity {
@@ -38,13 +36,4 @@ export class GroceryItemsEntity {
 
   @UpdateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
   updated_at!: Date;
-
-  @OneToMany(
-    () => OrderDetailEntity,
-    (order_detail) => order_detail.grocery_id,
-    {
-      cascade: true,
-    },
-  )
-  order_detail!: OrderDetailEntity[];
 }

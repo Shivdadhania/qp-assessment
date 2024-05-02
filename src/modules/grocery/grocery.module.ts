@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { GroceryService } from './grocery.service';
 import { GroceryController } from './grocery.controller';
-import { GroceryItemsRepository } from 'repo';
+import { GroceryItemsRepository } from './../../repo';
 
 @Module({
   controllers: [GroceryController],

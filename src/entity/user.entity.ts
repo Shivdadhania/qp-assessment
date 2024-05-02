@@ -48,8 +48,6 @@ export class UserEntity {
   @UpdateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
   updated_at!: Date;
 
-  @OneToMany(() => OrderEntity, (order) => order.user_id, {
-    cascade: true,
-  })
+  @OneToMany(() => OrderEntity, (order) => order.user_id)
   order!: OrderEntity[];
 }

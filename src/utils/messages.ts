@@ -11,6 +11,15 @@ export const messages = {
   passwordWrong: `Password is wrong.`,
   userNotFound: `User not found.`,
 
-  userLoginSuccessfully: `User login success fully.`,
+  userLoginSuccessfully: `User login successfully.`,
   productList: `Product list get successfully.`,
+  addGrocery: `Grocery added successfully.`,
+  updateGrocery: `Grocery updated successfully.`,
+  deleteGrocery: `Grocery deleted successfully.`,
+
+  groceryAlreadyExists: `Grocery already exists with same name.`,
+  groceryNotFound: `Grocery not found.`,
+  notHaveEnoughQuantity: `Does not have enough quantity.`,
+
+  orderBook: `Grocery booked successfully.`,
 };

@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import compression from 'compression';
-import { RequestMethod, ValidationPipe } from '@nestjs/common';
+import { RequestMethod } from '@nestjs/common';
 import { AppModule } from './app/app.module';
 import {
   config,
@@ -9,6 +9,7 @@ import {
   loadEnv,
   logger,
   TransformInterceptor,
+  ValidationPipe,
 } from './utils';
 
 async function bootstrap() {

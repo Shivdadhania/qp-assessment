@@ -4,7 +4,7 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { LoginReqDto } from './dto';
-import { UserRepository } from './../../repo';
+import { UserRepository } from '../../repo';
 import { comparePassword, generateJwt, messages } from '../../utils';
 
 @Injectable()

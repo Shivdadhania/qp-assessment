@@ -1,12 +1,13 @@
 import {
   Column,
+  CreateDateColumn,
   Entity,
   Index,
   JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
-import { GroceryItemsEntity } from './grocery-items.entity';
 import { OrderEntity } from './order.entity';
 
 @Entity('order_detail')
@@ -26,15 +27,30 @@ export class OrderDetailEntity {
   })
   quantity!: number;
 
+  @Column({
+    type: 'varchar',
+    length: 300,
+    nullable: false,
+    unique: true,
+  })
+  name!: string;
+
   @Index('IDX_order_detail_order_id')
-  @ManyToOne(() => OrderEntity, (order) => order.id, { onDelete: 'CASCADE' })
+  @ManyToOne(() => OrderEntity, (order) => order.id)
   @JoinColumn({ name: 'order_id' })
   order_id!: OrderEntity;
 
   @Index('IDX_order_detail_grocery_id')
-  @ManyToOne(() => GroceryItemsEntity, (grocery) => grocery.id, {
-    onDelete: 'CASCADE',
+  @Column({
+    type: 'varchar',
+    length: 300,
+    nullable: false,
   })
-  @JoinColumn({ name: 'grocery_id' })
-  grocery_id!: GroceryItemsEntity;
+  grocery_id!: string;
+
+  @CreateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
+  created_at!: Date;
+
+  @UpdateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
+  updated_at!: Date;
 }

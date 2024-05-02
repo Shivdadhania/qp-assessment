@@ -30,7 +30,7 @@ export class OrderEntity {
   updated_at!: Date;
 
   @Index('IDX_order_user_id')
-  @ManyToOne(() => UserEntity, (user) => user.id, { onDelete: 'CASCADE' })
+  @ManyToOne(() => UserEntity, (user) => user.id)
   @JoinColumn({ name: 'user_id' })
   user_id!: UserEntity;
 

@@ -1,7 +1,28 @@
-import { Controller, Get, Query, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
 import { GroceryService } from './grocery.service';
-import { GroceryListQueryDto } from 'modules/grocery/dto';
-import { AuthGuard, messages, Permission, PERMISSIONS, RoleGuard } from 'utils';
+import {
+  AddGroceryReqDto,
+  GroceryIdParamsDto,
+  GroceryListQueryDto,
+  UpdateGroceryReqDto,
+} from './dto';
+import {
+  AuthGuard,
+  messages,
+  Permission,
+  PERMISSIONS,
+  RoleGuard,
+} from './../../utils';
 
 @Controller('grocery')
 export class GroceryController {
@@ -15,6 +36,42 @@ export class GroceryController {
     return {
       data,
       message: messages.productList,
+    };
+  }
+
+  @Post('')
+  @Permission(PERMISSIONS.GROCERY_ADD)
+  @UseGuards(AuthGuard, RoleGuard)
+  async add(@Body() body: AddGroceryReqDto) {
+    const data = await this.groceryService.add(body);
+    return {
+      data,
+      message: messages.addGrocery,
+    };
+  }
+
+  @Patch(':id')
+  @Permission(PERMISSIONS.GROCERY_UPDATE)
+  @UseGuards(AuthGuard, RoleGuard)
+  async update(
+    @Body() body: UpdateGroceryReqDto,
+    @Param() param: GroceryIdParamsDto,
+  ) {
+    const data = await this.groceryService.update(body, param.id);
+    return {
+      data,
+      message: messages.updateGrocery,
+    };
+  }
+
+  @Delete(':id')
+  @Permission(PERMISSIONS.GROCERY_DELETE)
+  @UseGuards(AuthGuard, RoleGuard)
+  async delete(@Param() param: GroceryIdParamsDto) {
+    const data = await this.groceryService.delete(param.id);
+    return {
+      data,
+      message: messages.addGrocery,
     };
   }
 }

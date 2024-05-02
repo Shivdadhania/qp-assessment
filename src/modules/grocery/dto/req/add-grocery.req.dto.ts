@@ -1,16 +1,17 @@
-import { IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { IsNotEmpty, IsNumber, IsString, Min } from 'class-validator';
 
 export class AddGroceryReqDto {
-    @IsNotEmpty()
-    @IsString()
-    name: string;
+  @IsNotEmpty()
+  @IsString()
+  name: string;
 
-    @IsNotEmpty()
-    @IsNumber()
-    price: number;
+  @IsNotEmpty()
+  @IsNumber()
+  @Min(0)
+  price: number;
 
-    @IsNotEmpty()
-    @IsNumber()
-    inventory_level: number;
-
+  @IsNotEmpty()
+  @IsNumber()
+  @Min(0)
+  inventory_level: number;
 }

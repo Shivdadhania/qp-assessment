@@ -8,3 +8,4 @@ export * from './messages';
 export * from './middleware';
 export * from './database';
 export * from './dispatchers';
+export * from './pipe';
