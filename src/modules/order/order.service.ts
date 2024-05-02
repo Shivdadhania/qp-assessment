@@ -50,8 +50,6 @@ export class OrderService {
             .getRepository(GroceryItemsEntity)
             .findOne({ where: { id: groceryObj.id } });
 
-          console.log('groceryData', groceryData);
-
           if (!groceryData) {
             throw new NotFoundException(messages.groceryNotFound);
           }
@@ -81,17 +79,17 @@ export class OrderService {
         order.total_amount = total;
 
         const newOrderObj = await tr.getRepository(OrderEntity).save(order);
-        console.log('step 1==============');
+
         orderDetails = orderDetails.map((k) => ({
           ...k,
           order_id: newOrderObj,
         }));
         await tr.getRepository(OrderDetailEntity).save(orderDetails);
-        console.log('step 2==============');
+
         await tr
           .getRepository(GroceryItemsEntity)
           .upsert(updatedGrocery, ['id']);
-        console.log('step 3==============');
+
         return order;
       });
     } catch (error) {

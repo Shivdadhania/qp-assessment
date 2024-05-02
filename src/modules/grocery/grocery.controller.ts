@@ -71,7 +71,7 @@ export class GroceryController {
     const data = await this.groceryService.delete(param.id);
     return {
       data,
-      message: messages.addGrocery,
+      message: messages.deleteGrocery,
     };
   }
 }
